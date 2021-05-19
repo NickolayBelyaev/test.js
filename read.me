@@ -1,0 +1,27 @@
+Test node.js program for get 1000 records from API with url 
+https://www.reddit.com/r/relationships/top/.json?sort=top&t=all.
+The received data is written to a file ./data/reddit.relationships.json in json format, a database in table
+dump_data in PostgreSQL with url //postgres:1@localhost:5432/test
+To change the file name, database table name, you need to change the variables in the file .env
+The database table is created automatically based on the structure of the data being read 
+
+Installation
+----------------
+Unpack the zip file - test.7z keeping the file structure.
+Go to the project directory 
+   cd test 
+Run the command
+   npm install
+
+Run program
+------------
+Run program with the command
+   npm start
+
+if you want to get only the file, run the following command
+   npx babel-node src/index.js --file
+if you need to save data to the database table, execute the command
+   npx babel-node src/index.js --table
+Previously, on the local host must be installed on port 5432 PostgreSQL DB. 
+Database with a name test with the owner postgres and password 1 must be created.
+If you want to change the connection parameters, you need to change the repo DATABASE_URL in the file .env
